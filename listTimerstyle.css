@@ -1,0 +1,289 @@
+  /* -------------------------------------------------------------
+     Modern Dark Mode (Glassmorphism) Theme
+  ------------------------------------------------------------- */
+
+  /* 전체 기본 스타일 초기화 */
+  * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  }
+
+  /* 1. 전체 배경 (#0f172a 깊은 네이비색) */
+  body {
+      background-color: #0f172a;
+      background-image: 
+          radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+          radial-gradient(at 50% 0%, hsla(225,39%,30%,0.3) 0, transparent 50%);
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+  }
+
+  /* 전체 대시보드 컨테이너 */
+  .dashboard-container {
+      width: 100%;
+      max-width: 540px;
+  }
+
+  /* 2. 타이틀 헤더 */
+  .dashboard-header {
+      text-align: center;
+      margin-bottom: 28px;
+  }
+
+  .dashboard-header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      margin-bottom: 8px;
+      background: linear-gradient(to right, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+  }
+
+  .dashboard-header p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+  }
+
+  /* 구분선 제거 또는 미니멀하게 처리 */
+  hr {
+      display: none; /* 글래스모피즘 카드 분할을 위해 기존 hr은 숨깁니다 */
+  }
+
+  /* 3. 공통 카드 스타일 (부드러운 라운딩 + 투명한 글래스모피즘) */
+  .pomodoro-section, 
+  .todo-section {
+      background: rgba(30, 41, 59, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .pomodoro-section h2,
+  .todo-section h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+  }
+
+  /* ==========================================
+     [섹션별 세부 스타일]
+  ========================================== */
+
+  /* 포모도로 타이머 영역 */
+  .pomodoro-section {
+      text-align: center;
+  }
+
+  .timer-display {
+      font-size: 4.5rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums; /* 숫자가 변할 때 들썩임 방지 */
+      letter-spacing: -0.02em;
+      color: #f1f5f9;
+      margin: 20px 0 30px 0;
+      text-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+  }
+
+  .timer-controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+  }
+
+  /* 할 일 목록(To Do) 영역 */
+  .todo-form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+  }
+
+  .todo-input {
+      flex: 1;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: #f8fafc;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .todo-input:focus {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  }
+
+  .todo-input::placeholder {
+      color: #64748b;
+  }
+
+  /* 투두 리스트 아이템 */
+  .todo-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+  }
+
+  .todo-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(15, 23, 42, 0.3);
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .todo-item input[type="checkbox"] {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #475569;
+      border-radius: 6px;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.2s, border-color 0.2s;
+  }
+
+  .todo-item input[type="checkbox"]:checked {
+      background-color: #10b981;
+      border-color: #10b981;
+  }
+
+  .todo-item input[type="checkbox"]:checked::after {
+      content: '✓';
+      position: absolute;
+      color: #fff;
+      font-size: 13px;
+      font-weight: bold;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+
+  .todo-item label {
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      cursor: pointer;
+      user-select: none;
+  }
+
+  .todo-item input[type="checkbox"]:checked + label {
+      color: #64748b;
+      text-decoration: line-through;
+  }
+
+
+  /* ==========================================
+     [버튼 공통 스타일 & 트랜지션]
+  ========================================== */
+  button {
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.25s ease, transform 0.1s ease, filter 0.2s ease;
+  }
+
+  /* 버튼 마우스 클릭 시 살짝 눌리는 효과 */
+  button:active {
+      transform: scale(0.98);
+  }
+
+  /* 타이머 시작 버튼 (메인 포인트 컬러) */
+  .btn-start {
+      background-color: #38bdf8;
+      color: #0f172a;
+      padding: 14px 28px;
+      flex: 1;
+  }
+  .btn-start:hover {
+      background-color: #7dd3fc; /* 슬며시 밝아지는 효과 */
+  }
+
+  /* 타이머 정지 버튼 */
+  .btn-stop {
+      background-color: rgba(239, 68, 68, 0.2);
+      color: #fca5a5;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      padding: 14px 24px;
+  }
+  .btn-stop:hover {
+      background-color: rgba(239, 68, 68, 0.3);
+      color: #fef2f2;
+  }
+
+  /* 타이머 초기화 버튼 */
+  .btn-reset {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #cbd5e1;
+      padding: 14px 24px;
+  }
+  .btn-reset:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #f8fafc;
+  }
+
+  /* 할 일 등록 버튼 */
+  .btn-todo-add {
+      background-color: #6366f1;
+      color: #ffffff;
+      padding: 0 24px;
+  }
+  .btn-todo-add:hover {
+      background-color: #818cf8; /* 슬며시 밝아지는 효과 */
+  }
+  /* 기존 .todo-item 스타일 수정 (우측 정렬을 위해 우측 끝 정렬 추가) */
+  .todo-item {
+      display: flex;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.3);
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  /* 체크박스와 라벨을 감싸는 영역이 왼쪽 공간을 다 차지하도록 설정 */
+  .todo-item label {
+      flex: 1; 
+      margin-left: 12px; /* 체크박스와의 간격 */
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      cursor: pointer;
+      user-select: none;
+  }
+
+  /* 할 일 삭제(X) 버튼 스타일 */
+  .btn-todo-delete {
+      background: transparent;
+      color: #64748b;
+      font-size: 1.5rem;
+      line-height: 1;
+      padding: 0 4px;
+      border-radius: 6px;
+      transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  /* 삭제 버튼 마우스 오버 시 레드 계열로 은은하게 변경 */
+  .btn-todo-delete:hover {
+      color: #f87171;
+      background-color: rgba(239, 68, 68, 0.1);
+  }
